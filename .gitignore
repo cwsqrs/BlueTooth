@@ -1,0 +1,33 @@
+.DS_Store
+
+DerivedData
+
+.*.sw?
+
+.cso
+
+tmp
+
+*.mode1v3
+
+*.pbxuser
+
+xcuserdata
+
+console.log
+
+xcuserdata/
+
+## Other
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# ignore cocoaPods
+Pods/
