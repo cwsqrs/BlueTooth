@@ -11,6 +11,7 @@
 #import "ViewController.h"
 #import "SerialGATT.h"
 //#import "MJRefresh.h"
+#import "BuleToothText-Swift.h"
 
 #define kHIGHT [UIScreen mainScreen].bounds.size.height
 #define kWIGTH [UIScreen mainScreen].bounds.size.width
@@ -104,7 +105,7 @@
     [self AddNavigationItemThing];//布局界面
     
     self.automaticallyAdjustsScrollViewInsets = NO;
-    _mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, kWIGTH, kHIGHT-80) style:UITableViewStylePlain];
+    _mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 164, kWIGTH, kHIGHT-80) style:UITableViewStylePlain];
     _mainTableView.delegate = self;
     _mainTableView.dataSource = self;
     [self.view addSubview:_mainTableView];
@@ -152,7 +153,7 @@
     
     UIButton * about = [UIButton buttonWithType:UIButtonTypeSystem];
     about.frame = CGRectMake(240, 30, 80, 30);
-    [about setTitle:@"关于我们" forState:UIControlStateNormal];
+    [about setTitle:@"扫二维码" forState:UIControlStateNormal];
     [about setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [about addTarget:self action:@selector(about) forControlEvents:UIControlEventTouchUpInside];
     [about setTintColor:[UIColor blackColor]];
@@ -251,6 +252,10 @@
 
 
 - (void)about {
+    
+    ScanViewController *scanVC = [[ScanViewController alloc] init];
+    [self.navigationController pushViewController:scanVC animated:YES];
+    return;
     
     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"欢迎您的支持" message:@"   我们是一家高科技无线智能产品开发公司。专业致力于蓝牙/WIFI等无线技术的相关智能产品的研发设计及生产，诚信协作是我们的团队精神。\n我们的网址:http://www.bolutek.cn/。" delegate:self cancelButtonTitle:@"谢谢您的支持" otherButtonTitles: nil];
     [alert show];

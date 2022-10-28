@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6651780EC0DD0A41886EE56A /* libPods-BuleToothText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B5C318CD63DF511101A799 /* libPods-BuleToothText.a */; };
+		79D5098E29092E980033B76D /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D5098D29092E980033B76D /* ScanViewController.swift */; };
+		79F17EA9290B84FE004A697A /* MacroDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F17EA8290B84FE004A697A /* MacroDefine.swift */; };
+		79F17EAB290BD472004A697A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79F17EAA290BD472004A697A /* LaunchScreen.storyboard */; };
 		84F5FB911A50E166009E3767 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F5FB901A50E166009E3767 /* Foundation.framework */; };
 		84F5FB931A50E166009E3767 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F5FB921A50E166009E3767 /* CoreGraphics.framework */; };
 		84F5FB951A50E166009E3767 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F5FB941A50E166009E3767 /* UIKit.framework */; };
@@ -37,6 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11B5C318CD63DF511101A799 /* libPods-BuleToothText.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BuleToothText.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		30A40C5CB8FE8C4486BEF07E /* Pods-BuleToothText.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuleToothText.debug.xcconfig"; path = "Target Support Files/Pods-BuleToothText/Pods-BuleToothText.debug.xcconfig"; sourceTree = "<group>"; };
+		79D5098C29092E970033B76D /* BuleToothText-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BuleToothText-Bridging-Header.h"; sourceTree = "<group>"; };
+		79D5098D29092E980033B76D /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		79F17EA8290B84FE004A697A /* MacroDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroDefine.swift; sourceTree = "<group>"; };
+		79F17EAA290BD472004A697A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84F5FB8D1A50E166009E3767 /* BuleToothText.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuleToothText.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F5FB901A50E166009E3767 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		84F5FB921A50E166009E3767 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -61,6 +71,7 @@
 		84F5FBD51A50ED5F009E3767 /* BLEDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEDeviceViewController.h; sourceTree = "<group>"; };
 		84F5FBD61A50ED5F009E3767 /* BLEDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEDeviceViewController.m; sourceTree = "<group>"; };
 		84F5FBD71A50ED5F009E3767 /* BLEDeviceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLEDeviceViewController.xib; sourceTree = "<group>"; };
+		93A269580B9333A69D75386F /* Pods-BuleToothText.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuleToothText.release.xcconfig"; path = "Target Support Files/Pods-BuleToothText/Pods-BuleToothText.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +82,7 @@
 				84F5FB931A50E166009E3767 /* CoreGraphics.framework in Frameworks */,
 				84F5FB951A50E166009E3767 /* UIKit.framework in Frameworks */,
 				84F5FB911A50E166009E3767 /* Foundation.framework in Frameworks */,
+				6651780EC0DD0A41886EE56A /* libPods-BuleToothText.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +107,7 @@
 				84F5FBAF1A50E167009E3767 /* BuleToothTextTests */,
 				84F5FB8F1A50E166009E3767 /* Frameworks */,
 				84F5FB8E1A50E166009E3767 /* Products */,
+				EE2F14449EC7A8282EA12057 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +127,7 @@
 				84F5FB921A50E166009E3767 /* CoreGraphics.framework */,
 				84F5FB941A50E166009E3767 /* UIKit.framework */,
 				84F5FBA91A50E167009E3767 /* XCTest.framework */,
+				11B5C318CD63DF511101A799 /* libPods-BuleToothText.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -129,8 +143,11 @@
 				84F5FBD61A50ED5F009E3767 /* BLEDeviceViewController.m */,
 				84F5FBD71A50ED5F009E3767 /* BLEDeviceViewController.xib */,
 				84F5FBC11A50E200009E3767 /* ViewController.xib */,
+				79D5098D29092E980033B76D /* ScanViewController.swift */,
+				79F17EA8290B84FE004A697A /* MacroDefine.swift */,
 				84F5FBA21A50E167009E3767 /* Images.xcassets */,
 				84F5FB971A50E166009E3767 /* Supporting Files */,
+				79D5098C29092E970033B76D /* BuleToothText-Bridging-Header.h */,
 			);
 			path = BuleToothText;
 			sourceTree = "<group>";
@@ -138,6 +155,7 @@
 		84F5FB971A50E166009E3767 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				79F17EAA290BD472004A697A /* LaunchScreen.storyboard */,
 				84F5FB981A50E166009E3767 /* BuleToothText-Info.plist */,
 				84F5FB991A50E166009E3767 /* InfoPlist.strings */,
 				84F5FB9C1A50E166009E3767 /* main.m */,
@@ -173,6 +191,15 @@
 			name = SerialGATT;
 			sourceTree = "<group>";
 		};
+		EE2F14449EC7A8282EA12057 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				30A40C5CB8FE8C4486BEF07E /* Pods-BuleToothText.debug.xcconfig */,
+				93A269580B9333A69D75386F /* Pods-BuleToothText.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -180,6 +207,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84F5FBB91A50E167009E3767 /* Build configuration list for PBXNativeTarget "BuleToothText" */;
 			buildPhases = (
+				B0E765B9F3996D558BB80F87 /* [CP] Check Pods Manifest.lock */,
 				84F5FB891A50E166009E3767 /* Sources */,
 				84F5FB8A1A50E166009E3767 /* Frameworks */,
 				84F5FB8B1A50E166009E3767 /* Resources */,
@@ -222,6 +250,7 @@
 				TargetAttributes = {
 					84F5FB8C1A50E166009E3767 = {
 						DevelopmentTeam = CY54665QGH;
+						LastSwiftMigration = 1400;
 					};
 					84F5FBA71A50E167009E3767 = {
 						TestTargetID = 84F5FB8C1A50E166009E3767;
@@ -255,6 +284,7 @@
 				84F5FB9B1A50E166009E3767 /* InfoPlist.strings in Resources */,
 				84F5FBD91A50ED5F009E3767 /* BLEDeviceViewController.xib in Resources */,
 				84F5FBC31A50E200009E3767 /* ViewController.xib in Resources */,
+				79F17EAB290BD472004A697A /* LaunchScreen.storyboard in Resources */,
 				84F5FBA31A50E167009E3767 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,16 +299,43 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B0E765B9F3996D558BB80F87 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BuleToothText-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		84F5FB891A50E166009E3767 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79F17EA9290B84FE004A697A /* MacroDefine.swift in Sources */,
 				84F5FBD31A50E8E0009E3767 /* SerialGATT.m in Sources */,
 				84F5FBC21A50E200009E3767 /* ViewController.m in Sources */,
 				84F5FBA11A50E167009E3767 /* AppDelegate.m in Sources */,
 				84F5FBD81A50ED5F009E3767 /* BLEDeviceViewController.m in Sources */,
 				84F5FB9D1A50E166009E3767 /* main.m in Sources */,
+				79D5098E29092E980033B76D /* ScanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,28 +449,41 @@
 		};
 		84F5FBBA1A50E167009E3767 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30A40C5CB8FE8C4486BEF07E /* Pods-BuleToothText.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = CY54665QGH;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BuleToothText/BuleToothText-Prefix.pch";
 				INFOPLIST_FILE = "BuleToothText/BuleToothText-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BuleToothText/BuleToothText-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		84F5FBBB1A50E167009E3767 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93A269580B9333A69D75386F /* Pods-BuleToothText.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = CY54665QGH;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BuleToothText/BuleToothText-Prefix.pch";
 				INFOPLIST_FILE = "BuleToothText/BuleToothText-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BuleToothText/BuleToothText-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -421,6 +491,7 @@
 		84F5FBBD1A50E167009E3767 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BuleToothText.app/BuleToothText";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -443,6 +514,7 @@
 		84F5FBBE1A50E167009E3767 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BuleToothText.app/BuleToothText";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
