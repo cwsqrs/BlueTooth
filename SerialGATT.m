@@ -220,8 +220,12 @@
         }
     }
     
+    if (!self.peripheralDic) {
+        self.peripheralDic = [[NSMutableDictionary alloc] init];
+    }
+    
     {
-        if(peripheral.identifier == NULL) return;
+        if(peripheral.identifier == NULL || peripheral.name == nil) return;
         // Add the new peripheral to the peripherals array
         for (int i = 0; i < [peripherals count]; i++) {
             CBPeripheral *p = [peripherals objectAtIndex:i];
@@ -239,18 +243,52 @@
                 return;
             }
         }
-        printf("New peripheral is found...\n");
-//        [peripherals addObject:peripheral];
-//        [delegate peripheralFound:peripheral];
         
-        if( peripheral.name != nil) {
-            [peripherals addObject:peripheral];
-            [delegate peripheralFound:peripheral];
+        printf("New peripheral is found...\n");
+        [peripherals addObject:peripheral];
+        [delegate peripheralFound:peripheral];
+        
+        //添加扫描蓝牙Mac地址对， 蓝牙Mac地址：48872D9A0179
+//        if ([peripheral.name isEqualToString:@"Romoss Bluetooth test"]) { //测试用
+        NSData *manufacturerData = [advertisementData objectForKey:@"kCBAdvDataManufacturerData"];
+        NSString *result = [self convertDataToHexStr:manufacturerData];
+//                const char *valueString = [[manufacturerData description] cStringUsingEncoding: NSUTF8StringEncoding];
+//                NSLog(@"%02x", valueString);
+        
+        if(result != nil && result.length > 4) {
+            NSString *addr = [result substringFromIndex:4];
+            NSString *macAddre = [addr uppercaseString];
+            NSLog(@"%@", macAddre);
+            [self.peripheralDic setObject:peripheral forKey:macAddre];
         }
+//        }
         return;
     }
     printf("%s\n", __FUNCTION__);
 }
+
+//data转十六进制
+- (NSString *)convertDataToHexStr:(NSData *)data {
+    if (!data || [data length] == 0) {
+        return @"";
+    }
+    NSMutableString *string = [[NSMutableString alloc] initWithCapacity:[data length]];
+    
+    [data enumerateByteRangesUsingBlock:^(const void *bytes, NSRange byteRange, BOOL *stop) {
+        unsigned char *dataBytes = (unsigned char*)bytes;
+        for (NSInteger i = 0; i < byteRange.length; i++) {
+            NSString *hexStr = [NSString stringWithFormat:@"%x", (dataBytes[i]) & 0xff];
+            if ([hexStr length] == 2) {
+                [string appendString:hexStr];
+            } else {
+                [string appendFormat:@"0%@", hexStr];
+            }
+        }
+    }];
+    
+    return string;
+}
+
 
 //-(CFUUIDRef)getUUIDRef:(CBPeripheral *)peripheral {
 //#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_7_0 && __IPHONE_OS_VERSION_MAX_ALLOWED <= __IPHONE_14_0

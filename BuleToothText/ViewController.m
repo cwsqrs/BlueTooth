@@ -111,7 +111,10 @@
     [self.view addSubview:_mainTableView];
     _mainTableView.tableHeaderView = [self creatView];
     _mainTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self scaning:_Scan];
+    });
 //    [self.headerRefreshView endRefreshing];
     
 }
@@ -236,6 +239,9 @@
             [peripheralViewControllerArray removeAllObjects];
             [_mainTableView reloadData];
         }
+        if (sensor.peripheralDic) {
+            sensor.peripheralDic = nil;
+        }
         
         sensor.delegate = self;
         printf("now we are searching device...\n");
@@ -254,6 +260,20 @@
 - (void)about {
     
     ScanViewController *scanVC = [[ScanViewController alloc] init];
+    
+    scanVC.scanResultAction = ^(ScanViewController * vc, NSString *macStr) {
+        __block CBPeripheral *per;
+        [sensor.peripheralDic enumerateKeysAndObjectsUsingBlock:^(NSString *key, CBPeripheral *obj, BOOL * _Nonnull stop) {
+            if ([key isEqualToString:macStr]) {
+                per = obj;
+                *stop = YES;
+            }
+        }];
+        BLEDeviceViewController *controller = [[BLEDeviceViewController alloc] init];
+        controller.peripheral = per;
+        controller.sensor = sensor;
+        [self.navigationController pushViewController:controller animated:YES];
+    };
     [self.navigationController pushViewController:scanVC animated:YES];
     return;
     

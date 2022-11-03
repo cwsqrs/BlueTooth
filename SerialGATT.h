@@ -41,6 +41,7 @@
 @property (strong, nonatomic) NSMutableArray *peripherals;
 @property (strong, nonatomic) CBCentralManager *manager;
 @property (strong, nonatomic) CBPeripheral *activePeripheral;
+@property (strong, nonatomic) NSMutableDictionary *peripheralDic;
 
 
 #pragma mark - Methods for controlling the BLKSoft Sensor

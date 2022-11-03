@@ -12,7 +12,7 @@ import SnapKit
 
 class ScanViewController: UIViewController {
     
-    var scanResultAction: ((ScanViewController, String) -> Void)?
+    @objc var scanResultAction: ((ScanViewController, String) -> Void)?
     var code:String?
     //扫描相关变量
     var device:AVCaptureDevice?
@@ -29,12 +29,20 @@ class ScanViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        session?.startRunning()
+        DispatchQueue.main.async { [weak self] in
+            if self?.session?.isRunning == false {
+                self?.session?.startRunning()
+            }
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        session?.stopRunning()
+        DispatchQueue.main.async { [weak self] in
+            if self?.session?.isRunning == true {
+                self?.session?.stopRunning()
+            }
+        }
     }
     
     func initView() {
@@ -66,7 +74,11 @@ class ScanViewController: UIViewController {
         preview?.videoGravity = AVLayerVideoGravity.resizeAspectFill
         preview?.frame = CGRect(x: 0, y: 0, width: SCREENWIDTH, height: SCREENHEIGHT)
         view.layer.insertSublayer(preview!, at: 0)
-        session?.startRunning()
+        DispatchQueue.main.async { [weak self] in
+            if self?.session?.isRunning == false {
+                self?.session?.startRunning()
+            }
+        }
     }
     
    
@@ -105,6 +117,7 @@ extension ScanViewController:AVCaptureMetadataOutputObjectsDelegate {
             let readableObject = last as! AVMetadataMachineReadableCodeObject
             if let str = readableObject.stringValue {
                 print(str)
+                navigationController?.popViewController(animated: true)
                 scanResultAction?(self,str)
             } else {
                 session?.startRunning()
