@@ -28,7 +28,7 @@
 
 @optional
 - (void) peripheralFound:(CBPeripheral *)peripheral;
-- (void) serialGATTCharValueUpdated: (NSString *)UUID value: (NSData *)data;
+- (void) serialGATTCharValueUpdated: (NSString *)UUID value: (NSString *)str;
 - (void) setConnect;
 - (void) setDisconnect;
 @end

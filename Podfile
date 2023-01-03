@@ -4,5 +4,6 @@ target 'BuleToothText' do
 
 #  pod 'swiftScan'
   pod 'SnapKit'
+  pod 'ORCharts/Line'
 
 end

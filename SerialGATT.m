@@ -210,6 +210,7 @@
     //TODO: to handle the state updates
 }
 
+//MARK: 发现外设
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
 {
     printf("Now we found device\n");
@@ -250,7 +251,7 @@
         
         //添加扫描蓝牙Mac地址对， 蓝牙Mac地址：48872D9A0179
 //        if ([peripheral.name isEqualToString:@"Romoss Bluetooth test"]) { //测试用
-        NSData *manufacturerData = [advertisementData objectForKey:@"kCBAdvDataManufacturerData"];
+        NSData *manufacturerData = [advertisementData objectForKey:CBAdvertisementDataManufacturerDataKey];
         NSString *result = [self convertDataToHexStr:manufacturerData];
 //                const char *valueString = [[manufacturerData description] cStringUsingEncoding: NSUTF8StringEncoding];
 //                NSLog(@"%02x", valueString);
@@ -267,7 +268,7 @@
     printf("%s\n", __FUNCTION__);
 }
 
-//data转十六进制
+//MARK: data转十六进制
 - (NSString *)convertDataToHexStr:(NSData *)data {
     if (!data || [data length] == 0) {
         return @"";
@@ -288,6 +289,8 @@
     
     return string;
 }
+
+
 
 
 //-(CFUUIDRef)getUUIDRef:(CBPeripheral *)peripheral {
@@ -323,6 +326,7 @@
 
 #pragma mark - CBPeripheral delegates
 
+//MARK: 从设备上获取到数据会调用此方法
 -(void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
     printf("in updateValueForCharacteristic function\n");
@@ -331,13 +335,15 @@
         printf("updateValueForCharacteristic failed\n");
         return;
     }
-    [delegate serialGATTCharValueUpdated:@"FFE1" value:characteristic.value];
-
+    
+    NSString *str = [self convertDataToHexStr:characteristic.value];
+    [delegate serialGATTCharValueUpdated:@"FFE1" value:str];
 
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
+//MARK:
 - (void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
     
@@ -383,6 +389,7 @@
  *
  */
 
+//MARK: 找到服务
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error {
     if (!error) {
         printf("Services of peripheral with UUID : %s found\r\n",[self UUIDToString:[self getUUIDFromString:peripheral.identifier.UUIDString]]);
@@ -405,6 +412,7 @@
  *
  */
 
+//MARK: 找到特征
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error {
     if (!error) {
         printf("Characteristics of service with UUID : %s found\r\n",[self CBUUIDToString:service.UUID]);

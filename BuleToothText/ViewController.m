@@ -124,7 +124,7 @@
     
     UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 260, 44)];
     UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(80, 10, 100, 44)];
-    label.text = @"Bolutek";
+    label.text = @"蓝牙设备"; // @"Bolutek";
     label.textAlignment = UITextAlignmentCenter;
     [view addSubview:label];
     self.navigationItem.titleView = view;
@@ -137,30 +137,48 @@
 
 - (UIView *)creatView {
     
-    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 80)];
+    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _mainTableView.frame.size.width, 80)];
+//    view.backgroundColor = [UIColor redColor];
     UIButton * but = [UIButton buttonWithType:UIButtonTypeSystem];
-    but.frame = CGRectMake(30, 30, 80, 30);
-    [but setTitle:@"版本升级" forState:UIControlStateNormal];
-    [but setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [but addTarget:self action:@selector(but) forControlEvents:UIControlEventTouchUpInside];
+    but.frame = CGRectMake(20, 0, (_mainTableView.frame.size.width - 80) / 3, 80);
+    [but setTitle:@"搜索设备" forState:UIControlStateNormal];
+    [but setImage:[[UIImage imageNamed:@"ble_search"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    but.backgroundColor = [UIColor colorWithRed:117 / 255.0 green:200 / 255.0 blue:249 / 255.0 alpha:1.0];
+    [but setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    but.layer.cornerRadius = 6;
+    but.layer.masksToBounds = YES;
+    [but addTarget:self action:@selector(scaning:) forControlEvents:UIControlEventTouchUpInside];
     [but setTintColor:[UIColor blackColor]];
     [view addSubview:but];
+    [but setIconInTopWithSpacing:5];
     
     _Scan = [UIButton buttonWithType:UIButtonTypeSystem];
-    _Scan.frame = CGRectMake(130, 30, 80, 30);
-    [_Scan setTitle:@"搜索设备" forState:UIControlStateNormal];
-    [_Scan setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [_Scan addTarget:self action:@selector(scaning:) forControlEvents:UIControlEventTouchUpInside];
+    _Scan.frame = CGRectMake((_mainTableView.frame.size.width - 80) / 3 + 40, 0, (_mainTableView.frame.size.width - 80) / 3, 80);
+    [_Scan setTitle:@"扫二维码" forState:UIControlStateNormal];
+//    _Scan.titleLabel.font = [UIFont systemFontOfSize:15];
+    [_Scan setImage:[UIImage imageNamed:@"ble_scan"] forState:UIControlStateNormal];
+    _Scan.backgroundColor = [UIColor colorWithRed:117 / 255.0 green:200 / 255.0 blue:249 / 255.0 alpha:1.0];
+    [_Scan setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _Scan.layer.cornerRadius = 6;
+    _Scan.layer.masksToBounds = YES;
+    [_Scan addTarget:self action:@selector(about) forControlEvents:UIControlEventTouchUpInside];
     [_Scan setTintColor:[UIColor blackColor]];
     [view addSubview:_Scan];
+    [_Scan setIconInTopWithSpacing:5];
     
     UIButton * about = [UIButton buttonWithType:UIButtonTypeSystem];
-    about.frame = CGRectMake(240, 30, 80, 30);
-    [about setTitle:@"扫二维码" forState:UIControlStateNormal];
-    [about setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [about addTarget:self action:@selector(about) forControlEvents:UIControlEventTouchUpInside];
+    about.frame = CGRectMake((_mainTableView.frame.size.width - 80) / 3 * 2 + 60, 0, (_mainTableView.frame.size.width - 80) / 3, 80);
+    [about setTitle:@"敬请期待" forState:UIControlStateNormal];
+    [about setImage:[UIImage imageNamed:@"ble_more"] forState:UIControlStateNormal];
+    about.backgroundColor = [UIColor colorWithRed:117 / 255.0 green:200 / 255.0 blue:249 / 255.0 alpha:1.0];
+    [about setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    about.layer.cornerRadius = 6;
+    about.layer.masksToBounds = YES;
+    [about addTarget:self action:@selector(but) forControlEvents:UIControlEventTouchUpInside];
     [about setTintColor:[UIColor blackColor]];
     [view addSubview:about];
+    [about setIconInTopWithSpacing:5];
+    
     return view;
 }
 
@@ -184,7 +202,12 @@
     
     [sensor connect:sensor.activePeripheral];
     
-    [self.navigationController pushViewController:controller animated:YES];
+//    [self.navigationController pushViewController:controller animated:YES];
+    
+    DetailBLEVC *detailBLEVC = [[DetailBLEVC alloc] init];
+    detailBLEVC.peripheral = controller.peripheral;
+    detailBLEVC.sensor = sensor;
+    [self.navigationController pushViewController:detailBLEVC animated:YES];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -245,7 +268,7 @@
         
         sensor.delegate = self;
         printf("now we are searching device...\n");
-        [Scan setTitle:@"正在搜索" forState:UIControlStateNormal];
+//        [Scan setTitle:@"正在搜索" forState:UIControlStateNormal];
         [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(scanTimer:) userInfo:nil repeats:NO];
         
         [sensor findBLKSoftPeripherals:5];
@@ -253,7 +276,7 @@
 }
 -(void) scanTimer:(NSTimer *)timer
 {
-    [_Scan setTitle:@"搜索设备" forState:UIControlStateNormal];
+//    [_Scan setTitle:@"搜索设备" forState:UIControlStateNormal];
 }
 
 
@@ -269,10 +292,23 @@
                 *stop = YES;
             }
         }];
-        BLEDeviceViewController *controller = [[BLEDeviceViewController alloc] init];
-        controller.peripheral = per;
-        controller.sensor = sensor;
-        [self.navigationController pushViewController:controller animated:YES];
+        
+        if (sensor.activePeripheral && sensor.activePeripheral != per) {
+            [sensor disconnect:sensor.activePeripheral];
+        }
+        sensor.activePeripheral = per;
+        [sensor connect:per];
+        
+//        BLEDeviceViewController *controller = [[BLEDeviceViewController alloc] init];
+//        controller.peripheral = per;
+//        controller.sensor = sensor;
+//        [self.navigationController pushViewController:controller animated:YES];
+        
+        DetailBLEVC *detailBLEVC = [[DetailBLEVC alloc] init];
+        detailBLEVC.peripheral = per;
+        detailBLEVC.sensor = sensor;
+        [self.navigationController pushViewController:detailBLEVC animated:YES];
+        
     };
     [self.navigationController pushViewController:scanVC animated:YES];
     return;

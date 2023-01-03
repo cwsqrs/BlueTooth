@@ -97,17 +97,16 @@ static NSInteger jieshou;
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(void) serialGATTCharValueUpdated:(NSString *)UUID value:(NSData *)data
-{
-    
-    jieshou += [data length];
-    NSString * charariste = [NSString stringWithFormat:@"TX: %d , RX: %d",fasong,jieshou];
-    _count.text = charariste;
-    NSString *value = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-    //textFromAdruino.text = [textFromAdruino.text stringByAppendingString:value];
-    tvRecv.text= [tvRecv.text stringByAppendingString:value];
-    [tvRecv scrollRangeToVisible:NSMakeRange(tvRecv.text.length, 1)];
-}
+//-(void) serialGATTCharValueUpdated:(NSString *)UUID value:(NSData *)data {
+//    
+//    jieshou += [data length];
+//    NSString * charariste = [NSString stringWithFormat:@"TX: %d , RX: %d",fasong,jieshou];
+//    _count.text = charariste;
+//    NSString *value = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+//    //textFromAdruino.text = [textFromAdruino.text stringByAppendingString:value];
+//    tvRecv.text= [tvRecv.text stringByAppendingString:value];
+//    [tvRecv scrollRangeToVisible:NSMakeRange(tvRecv.text.length, 1)];
+//}
 
 - (IBAction)sendMsgToArduino:(id)sender {
     NSData *data = [MsgToArduino.text dataUsingEncoding:[NSString defaultCStringEncoding]];

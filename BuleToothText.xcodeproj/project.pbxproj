@@ -8,7 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		6651780EC0DD0A41886EE56A /* libPods-BuleToothText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B5C318CD63DF511101A799 /* libPods-BuleToothText.a */; };
+		79D35349293F1D2900D67BE4 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D35348293F1D2900D67BE4 /* UIButtonExtension.swift */; };
 		79D5098E29092E980033B76D /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D5098D29092E980033B76D /* ScanViewController.swift */; };
+		79D807AA294093CC00F74499 /* DetailBLEVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D807A8294093CC00F74499 /* DetailBLEVC.swift */; };
+		79D807AB294093CC00F74499 /* DetailBLEVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79D807A9294093CC00F74499 /* DetailBLEVC.xib */; };
+		79D807AE2940968D00F74499 /* DetailShowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D807AC2940968D00F74499 /* DetailShowCell.swift */; };
+		79D807AF2940968D00F74499 /* DetailShowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79D807AD2940968D00F74499 /* DetailShowCell.xib */; };
+		79D807BB294C075600F74499 /* LineChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D807B9294C075600F74499 /* LineChartVC.swift */; };
+		79D807BC294C075600F74499 /* LineChartVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79D807BA294C075600F74499 /* LineChartVC.xib */; };
+		79D807C22950497300F74499 /* ChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D807C12950497300F74499 /* ChartModel.swift */; };
 		79F17EA9290B84FE004A697A /* MacroDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F17EA8290B84FE004A697A /* MacroDefine.swift */; };
 		79F17EAB290BD472004A697A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79F17EAA290BD472004A697A /* LaunchScreen.storyboard */; };
 		84F5FB911A50E166009E3767 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F5FB901A50E166009E3767 /* Foundation.framework */; };
@@ -43,8 +51,16 @@
 /* Begin PBXFileReference section */
 		11B5C318CD63DF511101A799 /* libPods-BuleToothText.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BuleToothText.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A40C5CB8FE8C4486BEF07E /* Pods-BuleToothText.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuleToothText.debug.xcconfig"; path = "Target Support Files/Pods-BuleToothText/Pods-BuleToothText.debug.xcconfig"; sourceTree = "<group>"; };
+		79D35348293F1D2900D67BE4 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		79D5098C29092E970033B76D /* BuleToothText-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BuleToothText-Bridging-Header.h"; sourceTree = "<group>"; };
 		79D5098D29092E980033B76D /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		79D807A8294093CC00F74499 /* DetailBLEVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBLEVC.swift; sourceTree = "<group>"; };
+		79D807A9294093CC00F74499 /* DetailBLEVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailBLEVC.xib; sourceTree = "<group>"; };
+		79D807AC2940968D00F74499 /* DetailShowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailShowCell.swift; sourceTree = "<group>"; };
+		79D807AD2940968D00F74499 /* DetailShowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailShowCell.xib; sourceTree = "<group>"; };
+		79D807B9294C075600F74499 /* LineChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartVC.swift; sourceTree = "<group>"; };
+		79D807BA294C075600F74499 /* LineChartVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LineChartVC.xib; sourceTree = "<group>"; };
+		79D807C12950497300F74499 /* ChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModel.swift; sourceTree = "<group>"; };
 		79F17EA8290B84FE004A697A /* MacroDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroDefine.swift; sourceTree = "<group>"; };
 		79F17EAA290BD472004A697A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84F5FB8D1A50E166009E3767 /* BuleToothText.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuleToothText.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,8 +158,16 @@
 				84F5FBD51A50ED5F009E3767 /* BLEDeviceViewController.h */,
 				84F5FBD61A50ED5F009E3767 /* BLEDeviceViewController.m */,
 				84F5FBD71A50ED5F009E3767 /* BLEDeviceViewController.xib */,
+				79D807A8294093CC00F74499 /* DetailBLEVC.swift */,
+				79D807A9294093CC00F74499 /* DetailBLEVC.xib */,
+				79D807B9294C075600F74499 /* LineChartVC.swift */,
+				79D807BA294C075600F74499 /* LineChartVC.xib */,
+				79D807AC2940968D00F74499 /* DetailShowCell.swift */,
+				79D807AD2940968D00F74499 /* DetailShowCell.xib */,
+				79D807C12950497300F74499 /* ChartModel.swift */,
 				84F5FBC11A50E200009E3767 /* ViewController.xib */,
 				79D5098D29092E980033B76D /* ScanViewController.swift */,
+				79D35348293F1D2900D67BE4 /* UIButtonExtension.swift */,
 				79F17EA8290B84FE004A697A /* MacroDefine.swift */,
 				84F5FBA21A50E167009E3767 /* Images.xcassets */,
 				84F5FB971A50E166009E3767 /* Supporting Files */,
@@ -284,6 +308,9 @@
 				84F5FB9B1A50E166009E3767 /* InfoPlist.strings in Resources */,
 				84F5FBD91A50ED5F009E3767 /* BLEDeviceViewController.xib in Resources */,
 				84F5FBC31A50E200009E3767 /* ViewController.xib in Resources */,
+				79D807BC294C075600F74499 /* LineChartVC.xib in Resources */,
+				79D807AB294093CC00F74499 /* DetailBLEVC.xib in Resources */,
+				79D807AF2940968D00F74499 /* DetailShowCell.xib in Resources */,
 				79F17EAB290BD472004A697A /* LaunchScreen.storyboard in Resources */,
 				84F5FBA31A50E167009E3767 /* Images.xcassets in Resources */,
 			);
@@ -330,11 +357,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				79F17EA9290B84FE004A697A /* MacroDefine.swift in Sources */,
+				79D35349293F1D2900D67BE4 /* UIButtonExtension.swift in Sources */,
+				79D807AA294093CC00F74499 /* DetailBLEVC.swift in Sources */,
 				84F5FBD31A50E8E0009E3767 /* SerialGATT.m in Sources */,
+				79D807BB294C075600F74499 /* LineChartVC.swift in Sources */,
 				84F5FBC21A50E200009E3767 /* ViewController.m in Sources */,
 				84F5FBA11A50E167009E3767 /* AppDelegate.m in Sources */,
 				84F5FBD81A50ED5F009E3767 /* BLEDeviceViewController.m in Sources */,
+				79D807AE2940968D00F74499 /* DetailShowCell.swift in Sources */,
 				84F5FB9D1A50E166009E3767 /* main.m in Sources */,
+				79D807C22950497300F74499 /* ChartModel.swift in Sources */,
 				79D5098E29092E980033B76D /* ScanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
