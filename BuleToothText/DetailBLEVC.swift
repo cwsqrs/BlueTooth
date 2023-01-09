@@ -37,7 +37,7 @@ class DetailBLEVC: UIViewController {
         tableView.tableFooterView = UIView(frame: .zero)
         addNavLeftItem()
         
-        datas.append(("电量：", "1%", UIImage(named: "quantity"), .quantity))
+//        datas.append(("电量：", "1%", UIImage(named: "quantity"), .quantity))
 //        datas.append(("电压：", "64V", UIImage(named: "voltage"), .voltage))
         
         
@@ -48,7 +48,7 @@ class DetailBLEVC: UIViewController {
         if let quantityData = UserDefaults.standard.object(forKey: "quantityCacheKey") as? Data {
             if let quantitys = NSKeyedUnarchiver.unarchiveObject(with: quantityData) as? [ChartModel] {
                 let time = Date.getTime()
-                self.quantitys = quantitys.filter({time - $0.time < 60 * 60 * 24 * 7})
+                self.quantitys = quantitys.filter({time - $0.time < 60 * 60 * 24 * 7}) //只显示七天内数据
             }
         }
         
@@ -89,8 +89,8 @@ class DetailBLEVC: UIViewController {
     func repeatQuantity() {
         sourceTimer?.cancel()
         sourceTimer = DispatchSource.makeTimerSource(queue: DispatchQueue.global())     //定时器(倒计时用)
-         sourceTimer?.schedule(deadline: .now(), repeating: .seconds(20))
-//        sourceTimer?.schedule(deadline: .now(), repeating: .seconds(60 * 10))
+//         sourceTimer?.schedule(deadline: .now(), repeating: .seconds(20))
+        sourceTimer?.schedule(deadline: .now(), repeating: .seconds(60 * 10))
          sourceTimer?.setEventHandler( handler: {[weak self] in
              self?.refreshQuantity()
         })
@@ -159,6 +159,15 @@ extension DetailBLEVC: BTSmartSensorDelegate {
 //        var temperature = 0
         var fastCharge = 0
         datas.removeAll()
+        
+        if str.count >= 12 {
+            let str6: String = String(str.dropFirst(10).prefix(2))
+            if str6 == "33" {
+                tableView.reloadData()
+                return
+            }
+        }
+        
         if str.count >= 2 {
             let str1: String = String(str.prefix(2))
             quantity = Int(str1, radix: 16) ?? 0
