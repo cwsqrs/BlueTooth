@@ -217,7 +217,33 @@ extension DetailBLEVC: BTSmartSensorDelegate {
                         if str.count >= 10 {
                             let str5: String = String(str.dropFirst(8).prefix(2))
                             fastCharge = Int(str5, radix: 16) ?? 0
-                            datas.append(("是否快充：", fastCharge == 1 ? "是" : "否", UIImage(named: "fast_charge"), .none))
+                            var str = ""
+                            switch str5 {
+                            case "81":
+                                str = "PD OUT"
+                            case "83", "84":
+                                str = "QC OUT"
+                            case "85":
+                                str = "FCP OUT"
+                            case "87":
+                                str = "SFCP OUT"
+                            case "88":
+                                str = "AFC OUT"
+                            case "89":
+                                str = "SCP OUT"
+                            case "90":
+                                str = "PD IN"
+                            case "c0":
+                                str = "FC IN"
+                            case "d0":
+                                str = "FCP IN"
+                            case "e0":
+                                str = "SCP IN"
+                            default:
+                                str = "NONE"
+                                break
+                            }
+                            datas.append(("快充协议：", str, UIImage(named: "fast_charge"), .none))
                             
                         }
                     }
