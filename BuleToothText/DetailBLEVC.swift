@@ -150,6 +150,13 @@ class DetailBLEVC: UIViewController {
 
 extension DetailBLEVC: BTSmartSensorDelegate {
     
+    //定义十二星座的array
+    
+    func settab() {
+        
+    }
+    
+    
     //持续接受蓝牙数据
     func serialGATTCharValueUpdated(_ UUID: String!, value str: String!) {
         print("!!!!!!!!!\(str ?? "")!!!!!!!!!")
